@@ -1,0 +1,69 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001fd943fa6e0 .scope module, "andUnit" "andUnit" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "A";
+    .port_info 1 /INPUT 8 "B";
+    .port_info 2 /OUTPUT 8 "C";
+o000001fd94446fb8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001fd94412fc0_0 .net "A", 7 0, o000001fd94446fb8;  0 drivers
+o000001fd94446fe8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001fd94445c10_0 .net "B", 7 0, o000001fd94446fe8;  0 drivers
+v000001fd94445cb0_0 .var "C", 7 0;
+E_000001fd943fc250 .event anyedge, v000001fd94412fc0_0, v000001fd94445c10_0;
+S_000001fd94445a80 .scope module, "andUnit_tb" "andUnit_tb" 3 1;
+ .timescale 0 0;
+v000001fd943fbd70_0 .var "A", 7 0;
+v000001fd943fbe10_0 .var "B", 7 0;
+v000001fd944127f0_0 .net "C", 7 0, v000001fd943fbcd0_0;  1 drivers
+S_000001fd94445d50 .scope module, "dut" "orUnit" 3 7, 2 13 0, S_000001fd94445a80;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "A";
+    .port_info 1 /INPUT 8 "B";
+    .port_info 2 /OUTPUT 8 "C";
+v000001fd943fbb90_0 .net "A", 7 0, v000001fd943fbd70_0;  1 drivers
+v000001fd943fbc30_0 .net "B", 7 0, v000001fd943fbe10_0;  1 drivers
+v000001fd943fbcd0_0 .var "C", 7 0;
+E_000001fd943fc450 .event anyedge, v000001fd943fbb90_0, v000001fd943fbc30_0;
+    .scope S_000001fd943fa6e0;
+T_0 ;
+    %wait E_000001fd943fc250;
+    %load/vec4 v000001fd94412fc0_0;
+    %load/vec4 v000001fd94445c10_0;
+    %and;
+    %store/vec4 v000001fd94445cb0_0, 0, 8;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_000001fd94445d50;
+T_1 ;
+    %wait E_000001fd943fc450;
+    %load/vec4 v000001fd943fbb90_0;
+    %load/vec4 v000001fd943fbc30_0;
+    %or;
+    %store/vec4 v000001fd943fbcd0_0, 0, 8;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_000001fd94445a80;
+T_2 ;
+    %pushi/vec4 170, 0, 8;
+    %store/vec4 v000001fd943fbd70_0, 0, 8;
+    %pushi/vec4 204, 0, 8;
+    %store/vec4 v000001fd943fbe10_0, 0, 8;
+    %delay 10, 0;
+    %vpi_call 3 22 "$display", "A = %b, B = %b, C = %b", v000001fd943fbd70_0, v000001fd943fbe10_0, v000001fd944127f0_0 {0 0 0};
+    %vpi_call 3 25 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "andUnit.v";
+    "andUnit_tb.v";

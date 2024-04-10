@@ -1,0 +1,131 @@
+$date
+	Wed Apr 10 10:40:58 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module ALU_TB $end
+$var wire 8 ! RESULT [7:0] $end
+$var reg 8 " DATA1 [7:0] $end
+$var reg 8 # DATA2 [7:0] $end
+$var reg 3 $ SELECT [2:0] $end
+$scope module ALU_inst $end
+$var wire 1 % CLK $end
+$var wire 8 & DATA1 [7:0] $end
+$var wire 8 ' DATA2 [7:0] $end
+$var wire 3 ( SELECT [2:0] $end
+$var wire 8 ) OR_RESULT [7:0] $end
+$var wire 8 * FORWARD_RESULT [7:0] $end
+$var wire 8 + AND_RESULT [7:0] $end
+$var wire 8 , ADD_RESULT [7:0] $end
+$var reg 8 - RESULT [7:0] $end
+$scope module dut1 $end
+$var wire 8 . DATA1 [7:0] $end
+$var wire 8 / DATA2 [7:0] $end
+$var wire 8 0 RESULT [7:0] $end
+$upscope $end
+$scope module dut2 $end
+$var wire 8 1 DATA1 [7:0] $end
+$var wire 8 2 DATA2 [7:0] $end
+$var reg 8 3 RESULT [7:0] $end
+$upscope $end
+$scope module dut3 $end
+$var wire 8 4 DATA1 [7:0] $end
+$var wire 8 5 DATA2 [7:0] $end
+$var wire 8 6 RESULT [7:0] $end
+$upscope $end
+$scope module dut4 $end
+$var wire 8 7 DATA1 [7:0] $end
+$var wire 8 8 DATA2 [7:0] $end
+$var wire 8 9 RESULT [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11111111 9
+b1010101 8
+b10101010 7
+b0 6
+b1010101 5
+b10101010 4
+b11111111 3
+b1010101 2
+b10101010 1
+b1010101 0
+b1010101 /
+b10101010 .
+bx -
+b11111111 ,
+b0 +
+b1010101 *
+b11111111 )
+b0 (
+b1010101 '
+b10101010 &
+z%
+b0 $
+b1010101 #
+b10101010 "
+bx !
+$end
+#1
+b1010101 !
+b1010101 -
+#10
+b1000101 ,
+b1000101 3
+b1010000 +
+b1010000 6
+b11110101 )
+b11110101 9
+b11110000 "
+b11110000 &
+b11110000 .
+b11110000 1
+b11110000 4
+b11110000 7
+#20
+b11111111 ,
+b11111111 3
+b0 +
+b0 6
+b11111111 )
+b11111111 9
+b1111 *
+b1111 0
+b1111 #
+b1111 '
+b1111 /
+b1111 2
+b1111 5
+b1111 8
+#21
+b1111 !
+b1111 -
+#30
+b1 $
+b1 (
+#32
+b11111111 !
+b11111111 -
+#40
+b10 $
+b10 (
+#41
+b0 !
+b0 -
+#50
+b11 $
+b11 (
+#51
+b11111111 !
+b11111111 -
+#60
